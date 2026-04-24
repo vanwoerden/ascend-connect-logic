@@ -71,3 +71,9 @@ export default defineConfig([
   },
 ])
 ```
+
+## Project notes
+
+Not all logic in this simulator is finished yet, but the intended behaviors should become clearer as we continue iterating.
+
+The top use-case dropdown is only a reminder of the scenarios we want to support; it is not currently wired to simulator state or routing.
