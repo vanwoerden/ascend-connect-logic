@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --text: #374151;
+  --text-h: #111827;
+  --bg: #fff;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --accent: #2563eb;
+  --accent-bg: rgba(37, 99, 235, 0.08);
+  --accent-border: rgba(37, 99, 235, 0.45);
+  --shadow:
+    rgba(0, 0, 0, 0.08) 0 8px 24px -4px, rgba(0, 0, 0, 0.04) 0 4px 8px -2px;
+
+  --sans: 'Rethink Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Rethink Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/1.45 var(--sans);
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #d1d5db;
+    --text-h: #f9fafb;
+    --bg: #0a0a0a;
+    --border: #374151;
+    --code-bg: #111111;
+    --accent: #60a5fa;
+    --accent-bg: rgba(96, 165, 250, 0.12);
+    --accent-border: rgba(96, 165, 250, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.35) 0 8px 24px -4px, rgba(0, 0, 0, 0.2) 0 4px 8px -2px;
+  }
+}
+
+#root {
+  max-width: 100%;
+  min-height: 100svh;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: var(--code-bg);
+  color: var(--text-h);
+}

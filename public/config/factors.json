@@ -1,0 +1,17 @@
+{
+  "defaults": {
+    "permissions": {
+      "bluetooth": "unset",
+      "camera": "unset",
+      "network": "granted"
+    },
+    "wifiConnected": true,
+    "appRoomCount": 0,
+    "networkOnlyRoomCount": 0,
+    "networkRoomNames": [],
+    "appRoomNames": [],
+    "activeRoomId": null,
+    "loggedIn": false,
+    "devices": []
+  }
+}

@@ -1,0 +1,414 @@
+{
+  "fallbackScreenId": "unknown",
+  "rules": [
+    {
+      "id": "not_logged_in",
+      "match": {
+        "loggedIn": false
+      },
+      "screenId": "login",
+      "notes": "Auth gates everything else."
+    },
+    {
+      "id": "network_denied",
+      "match": {
+        "loggedIn": true,
+        "permissions": {
+          "network": "denied"
+        }
+      },
+      "screenId": "permissions_network",
+      "notes": "Without network permission the app cannot detect devices or rooms on the LAN."
+    },
+    {
+      "id": "network_unset",
+      "match": {
+        "loggedIn": true,
+        "permissions": {
+          "network": "unset"
+        }
+      },
+      "screenId": "permissions_network",
+      "notes": "While permission is unset, the simulator skips this rule, resolves the next match, and shows an allow/deny modal on that screen. Denied still uses the full-page permissions_network screen."
+    },
+    {
+      "id": "wifi_off",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": false
+      },
+      "screenId": "no_wifi",
+      "notes": "Wi‑Fi is required for this flow; Ethernet alone does not satisfy the app’s connectivity check."
+    },
+    {
+      "id": "bluetooth_denied",
+      "match": {
+        "loggedIn": true,
+        "permissions": {
+          "bluetooth": "denied"
+        }
+      },
+      "screenId": "permissions_bluetooth"
+    },
+    {
+      "id": "camera_denied",
+      "match": {
+        "loggedIn": true,
+        "permissions": {
+          "camera": "denied"
+        }
+      },
+      "screenId": "permissions_camera"
+    },
+    {
+      "id": "devices_offline_zero_app_rooms",
+      "match": {
+        "loggedIn": true,
+        "appRoomCount": 0,
+        "permissions": {
+          "network": "granted"
+        },
+        "devices": [
+          {
+            "status": "offline"
+          }
+        ]
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup path even when the first device is offline."
+    },
+    {
+      "id": "devices_offline_or_unassigned",
+      "match": {
+        "loggedIn": true,
+        "permissions": {
+          "network": "granted"
+        },
+        "devices": [
+          {
+            "status": "offline"
+          }
+        ]
+      },
+      "screenId": "devices_need_attention",
+      "notes": "LAN device reachability is unknown without network permission."
+    },
+    {
+      "id": "devices_found_pick_unassigned",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "permissions": {
+          "network": "granted",
+          "bluetooth": "granted",
+          "camera": "granted"
+        },
+        "devices": [
+          {
+            "status": "unassigned"
+          }
+        ]
+      },
+      "screenId": "no_rooms_network_devices",
+      "notes": "0 app rooms + LAN devices: empty room list / create room (Figma room view empty list)."
+    },
+    {
+      "id": "devices_unassigned_zero_app_rooms",
+      "match": {
+        "loggedIn": true,
+        "appRoomCount": 0,
+        "permissions": {
+          "network": "granted"
+        },
+        "devices": [
+          {
+            "status": "unassigned"
+          }
+        ]
+      },
+      "screenId": "no_rooms_network_devices",
+      "notes": "0 app rooms + unassigned on LAN: empty list + devices (same as devices_found_pick_unassigned when BT/camera not required)."
+    },
+    {
+      "id": "devices_unassigned",
+      "match": {
+        "loggedIn": true,
+        "permissions": {
+          "network": "granted"
+        },
+        "devices": [
+          {
+            "status": "unassigned"
+          }
+        ]
+      },
+      "screenId": "devices_need_attention",
+      "notes": "Discovering unassigned devices on the network requires network permission."
+    },
+    {
+      "id": "single_room",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 1
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "multiple_rooms",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 2
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "multiple_rooms_three_plus",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 3
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "room_list_4",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 4
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "room_list_5",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 5
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "room_list_6",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 6
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "room_list_7",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 7
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "room_list_8",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 8
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "room_list_9",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 9
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "room_list_10",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 10
+      },
+      "screenId": "room_interior"
+    },
+    {
+      "id": "network_rooms_no_app_rooms",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 1,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_many",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 2,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_3",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 3,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_4",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 4,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_5",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 5,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_6",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 6,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_7",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 7,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_8",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 8,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_9",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 9,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "network_rooms_no_app_rooms_10",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 10,
+        "permissions": {
+          "network": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms: setup even when LAN-only rooms exist; network list still available in settings."
+    },
+    {
+      "id": "devices_found_pick_no_devices_yet",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 0,
+        "permissions": {
+          "network": "granted",
+          "bluetooth": "granted",
+          "camera": "granted"
+        }
+      },
+      "screenId": "room_setup",
+      "notes": "0 app rooms, LAN ready, no speakers yet — room_setup onboarding."
+    },
+    {
+      "id": "empty_rooms_logged_in",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true,
+        "appRoomCount": 0,
+        "networkOnlyRoomCount": 0
+      },
+      "screenId": "room_setup"
+    },
+    {
+      "id": "home_catchall",
+      "match": {
+        "loggedIn": true,
+        "wifiConnected": true
+      },
+      "screenId": "room_interior"
+    }
+  ]
+}

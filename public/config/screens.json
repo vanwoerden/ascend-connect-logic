@@ -1,0 +1,138 @@
+{
+  "screens": [
+    {
+      "id": "login",
+      "title": "Sign in",
+      "body": "Sign in with your email address.",
+      "actions": [
+        { "id": "sign_in", "label": "Sign in" },
+        { "id": "create_account", "label": "Create account" }
+      ]
+    },
+    {
+      "id": "permissions_network",
+      "title": "Network access",
+      "body": "The app needs network permission to discover rooms and detect devices on the network.",
+      "actions": [
+        { "id": "open_settings", "label": "Open settings" },
+        { "id": "learn_more", "label": "Learn more" }
+      ]
+    },
+    {
+      "id": "permissions_bluetooth",
+      "title": "Bluetooth",
+      "body": "Bluetooth is required to pair and communicate with nearby devices.",
+      "actions": [
+        { "id": "enable_bluetooth", "label": "Enable Bluetooth" },
+        { "id": "skip_for_now", "label": "Not now" }
+      ]
+    },
+    {
+      "id": "permissions_camera",
+      "title": "Camera",
+      "body": "Camera access is used for scanning setup codes. You can continue without it if you enter codes manually.",
+      "actions": [
+        { "id": "allow_camera", "label": "Allow camera" },
+        { "id": "enter_manually", "label": "Enter code manually" }
+      ]
+    },
+    {
+      "id": "offline_connectivity",
+      "title": "No connection",
+      "body": "Connect to Wi‑Fi or plug in Ethernet to discover rooms and devices on the network.",
+      "actions": [
+        { "id": "open_wifi_settings", "label": "Wi‑Fi settings" },
+        { "id": "retry", "label": "Retry" }
+      ]
+    },
+    {
+      "id": "no_wifi",
+      "title": "No Wi‑Fi connection",
+      "body": "Connect your phone to your wireless network to find and control your speakers.",
+      "actions": [
+        { "id": "open_wifi_settings", "label": "Wi‑Fi settings" },
+        { "id": "retry", "label": "Retry" }
+      ]
+    },
+    {
+      "id": "network_rooms_only",
+      "title": "Network rooms",
+      "body": "There are rooms on the network you have not added to the app. You can join one or create your own.\n\nCreating your own room requires at least two devices detected on the LAN that are not in any room yet.",
+      "actions": [
+        { "id": "go_to_room", "label": "Go to a network room" },
+        { "id": "create_room", "label": "Create your room" }
+      ]
+    },
+    {
+      "id": "room_detail",
+      "title": "Room",
+      "body": "Legacy copy; routing uses room_interior when you open a room.",
+      "actions": [
+        { "id": "add_device", "label": "Add device" },
+        { "id": "remove_device", "label": "Remove device" },
+        { "id": "back_to_list", "label": "Back to all rooms" }
+      ]
+    },
+    {
+      "id": "room_interior",
+      "title": "",
+      "body": "",
+      "actions": [
+        { "id": "see_all_rooms", "label": "See all rooms" },
+        { "id": "create_room", "label": "Create room" },
+        { "id": "add_device", "label": "Add device to room" }
+      ]
+    },
+    {
+      "id": "no_rooms_network_devices",
+      "navTitle": "No rooms",
+      "title": "No rooms on the network",
+      "body": "We couldn’t find any rooms. But we did find {{count}} available {{devices}}:",
+      "actions": [
+        { "id": "create_room", "label": "Create a new room" },
+        { "id": "assign_device", "label": "Assign to room" },
+        { "id": "remove_device", "label": "Remove device" }
+      ]
+    },
+    {
+      "id": "room_setup",
+      "navTitle": "Connect your device",
+      "title": "Connect your devices",
+      "bodyZeroDevices": "Make sure your devices are powered on and connected to the same network as your phone.",
+      "body": "6c’s are WiFi-enabled. Scan the QR code on the back of the speaker to connect it to your wireless network.\n\nYou can also connect your 6c to your local network with an ethernet cable.",
+      "actions": [
+        { "id": "connect_local_network", "label": "Connect to local network" },
+        { "id": "skip_room_setup", "label": "Skip for now" },
+        { "id": "assign_device", "label": "Assign to room" },
+        { "id": "remove_device", "label": "Remove device" }
+      ]
+    },
+    {
+      "id": "devices_found_pick",
+      "title": "{{count}} devices found",
+      "bodyZeroDevices": "Make sure your devices are powered on and connected to the same network as your phone.",
+      "body": "Select the ones you want to add to a room.",
+      "actions": [
+        { "id": "assign_device", "label": "Assign to room" },
+        { "id": "remove_device", "label": "Remove device" }
+      ]
+    },
+    {
+      "id": "devices_need_attention",
+      "title": "You don't have any rooms.",
+      "body": "Scan your device's QR code or connect via Ethernet to add them to a room.",
+      "actions": [
+        { "id": "assign_device", "label": "Assign to room" },
+        { "id": "remove_device", "label": "Remove device" }
+      ]
+    },
+    {
+      "id": "unknown",
+      "title": "Default",
+      "body": "No rule matched this combination. Add or reorder rules in public/config/rules.json.",
+      "actions": [
+        { "id": "export_state", "label": "Copy state (console)" }
+      ]
+    }
+  ]
+}
