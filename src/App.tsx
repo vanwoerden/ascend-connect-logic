@@ -37,16 +37,17 @@ export default function App() {
   const [viewMode, setViewMode] = useState<ExplorerView>('simulator')
   const [useCases, setUseCases] = useState<string[]>([])
   const [selectedUseCase, setSelectedUseCase] = useState('')
+  const baseUrl = import.meta.env.BASE_URL
 
   useEffect(() => {
     let cancelled = false
     ;(async () => {
       try {
         const [fRes, sRes, rRes, uRes] = await Promise.all([
-          fetch('/config/factors.json'),
-          fetch('/config/screens.json'),
-          fetch('/config/rules.json'),
-          fetch('/use_cases.md'),
+          fetch(`${baseUrl}config/factors.json`),
+          fetch(`${baseUrl}config/screens.json`),
+          fetch(`${baseUrl}config/rules.json`),
+          fetch(`${baseUrl}use_cases.md`),
         ])
         if (!fRes.ok || !sRes.ok || !rRes.ok) {
           throw new Error('Failed to load config JSON')
@@ -61,7 +62,7 @@ export default function App() {
         if (uRes.ok) {
           parsedUseCases = parseUseCasesFromMd(await uRes.text())
         } else {
-          console.warn('Failed to load /use_cases.md')
+          console.warn(`Failed to load ${baseUrl}use_cases.md`)
         }
         if (cancelled) return
         setUseCases(parsedUseCases)
@@ -79,7 +80,7 @@ export default function App() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [baseUrl])
 
   useEffect(() => {
     if (!simState) return
